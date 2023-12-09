@@ -7,14 +7,7 @@ from django.urls import reverse_lazy
 from django.contrib import admin
 from django.views.generic import TemplateView
 
-# Create your views here.
-#shdfoidhlfhw
-#lalala
-#ek
 
-#reimer me la pela
-
-#wuuuu
 
 class MenuView(TemplateView):
     template_name = 'AppMatriculita/Menu.html'

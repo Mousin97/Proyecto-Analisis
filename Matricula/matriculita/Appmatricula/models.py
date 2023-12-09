@@ -1,6 +1,5 @@
 from django.db import models
-#miu me la pije pelaa
-# Create your models here.
+
 
 class Carrera (models.Model):
     Carrera_id = models.CharField(primary_key = True, max_length = 50)
