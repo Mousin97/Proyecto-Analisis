@@ -97,7 +97,7 @@ class MatriculaAgregar (generic.CreateView):
     template_name = 'Matricula/Agregar.html'
     model = Matricula
     form_class = MatriculaForm
-    success_url = reverse_lazy('menusito')
+    success_url = reverse_lazy('matriculaslistar')
 
 class MatriculaEditar(generic.UpdateView):
     template_name = 'Matricula/Editar.html'
