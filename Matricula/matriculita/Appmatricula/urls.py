@@ -37,8 +37,8 @@ path('clases/eliminar/<str:pk>/', ClasesEliminar.as_view(), name = 'claseselimin
 
 path('matriculas', Matriculalistar.as_view(), name = 'matriculaslistar'),
 path('matriculas/agregar', MatriculaAgregar.as_view(), name = 'matriculasagregar'),
-path('matriculas/editar/<str:pk>/', MatriculaEditar.as_view(), name = 'matriculaseditar'),
-path('matriculas/eliminar/<str:pk>/', MatriculaEliminar.as_view(), name = 'matriculaseliminar'),
+path('matriculas/editar/<int:pk>/', MatriculaEditar.as_view(), name = 'matriculaseditar'),
+path('matriculas/eliminar/<int:pk>/', MatriculaEliminar.as_view(), name = 'matriculaseliminar'),
 
     ### -------- URLS DE ASIGNACION -------###
 

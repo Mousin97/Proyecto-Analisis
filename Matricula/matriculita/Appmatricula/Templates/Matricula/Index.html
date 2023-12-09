@@ -114,7 +114,7 @@
                 {% for matricula in matriculas %}
                     <tr>
                         <td>
-                            <a href="{% url 'matriculaseditar' matricula.M_Id %}" class="btn btn-info editar-btn">
+                            <a href="{% url 'matriculaseditar' pk=matricula.Matricula_id %}" class="btn btn-info editar-btn">
                                 <ion-icon name="pencil-outline"></ion-icon> Editar
                             </a>
                             <a href="{% url 'matriculaseliminar' matricula.M_Id %}" class="btn btn-danger eliminar-btn">
