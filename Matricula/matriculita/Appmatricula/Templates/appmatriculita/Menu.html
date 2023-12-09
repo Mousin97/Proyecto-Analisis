@@ -1,0 +1,172 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Menú{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0; /* Fondo principal */
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            color: #333; /* Color de texto principal */
+        }
+
+        #sidebar {
+            background-color: #333; /* Fondo de la barra lateral */
+            width: 250px;
+            height: 100vh;
+            position: fixed;
+            left: -250px;
+            top: 0;
+            padding-top: 20px;
+            transition: left 0.3s;
+        }
+
+        #sidebar a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: #fff; /* Color de texto enlaces barra lateral */
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        #sidebar a:hover {
+            background-color: #555; /* Color de fondo enlaces barra lateral al pasar el cursor */
+        }
+
+        #menu-btn {
+            position: fixed;
+            left: 10px;
+            top: 10px;
+            cursor: pointer;
+            z-index: 1;
+        }
+
+        #content {
+            margin-left: 0;
+            padding: 20px;
+            transition: margin-left 0.3s;
+        }
+
+        h2 {
+            color: #007bff; /* Color de título */
+            margin-bottom: 20px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .btn-custom {
+            background-color: #007bff; /* Color de fondo de botones */
+            color: #fff; /* Color de texto de botones */
+            border: 1px solid #007bff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn-custom:hover {
+            background-color: #0056b3; /* Color de fondo de botones al pasar el cursor */
+            color: #fff;
+            transform: scale(1.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        #sidebar-logo {
+            max-width: 80%;
+            margin-bottom: 20px;
+        }
+
+        #content img {
+            width: 100%;
+            height: auto;
+            max-width: none;
+        }
+
+        /* Estilos para los botones de abajo del main */
+        .bottom-buttons-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .bottom-btn {
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(45deg, #007bff, #0056b3); /* Color de fondo de botones inferiores */
+            color: #fff; /* Color de texto de botones inferiores */
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .bottom-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Menú desplegable en la barra lateral -->
+    <div id="sidebar">
+        <img id="sidebar-logo" src="{% static 'AppMatricula/Images/Logo-ujcv.svg.png' %}" alt="Logo">
+        <a href="{% url 'alumnoslistar' %}">Alumnos</a>
+        <a href="{% url 'carreraslistar' %}">Carreras</a>
+        <a href="{% url 'asignacionlistar' %}">Informacion de Clases</a>
+        <a href="{% url 'matriculaslistar' %}">Inscripcion en Linea</a>
+    </div>
+
+
+    <div id="menu-btn">&#9776;</div>
+
+    <main id="content">
+        <div class="section button-container">
+            <button type="button" class="btn btn-custom">Inicio</button>
+            <button type="button" class="btn btn-custom">Admisiones</button>
+            <button type="button" class="btn btn-custom">Conócenos</button>
+            <button type="button" class="btn btn-custom">Infórmate</button>
+        </div>
+
+        <h2>Universidad Jose Cecilio del Valle</h2>
+
+        <div class="section">
+            <img src="{% static 'AppMatricula/Images/imagen.webp' %}" alt="Sección de Imagen">
+        </div>
+
+        
+        
+    </main>
+
+    <script>
+        document.getElementById('menu-btn').addEventListener('click', function () {
+            const sidebar = document.getElementById('sidebar');
+            const content = document.getElementById('content');
+
+            if (sidebar.style.left === '0px') {
+                sidebar.style.left = '-250px';
+                content.style.marginLeft = '0';
+            } else {
+                sidebar.style.left = '0';
+                content.style.marginLeft = '250px';
+            }
+        });
+    </script>
+
+</body>
+</html>
+

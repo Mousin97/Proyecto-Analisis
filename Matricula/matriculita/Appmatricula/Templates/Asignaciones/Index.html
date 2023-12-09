@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asignaciones</title>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
+
+    <style>
+        body {
+            background-color: #333; 
+            color: #fff;
+            font-family: 'Georgia', serif; 
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            background-color: #02172e; 
+            color: #fff;
+            padding: 15px;
+            margin: 0 0 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1500px;
+            margin: 0 auto;
+        }
+
+        .agregar-btn {
+            text-decoration: none;
+            display: block; 
+            margin: 20px 0; 
+            padding: 10px;
+            border-radius: 5px;
+            color: #fff;
+            background-color: #515351; 
+            text-align: center;
+        }
+
+        .editar-btn,
+        .eliminar-btn {
+            text-decoration: none;
+            display: inline-block;
+            margin-left: 10px; 
+            border-radius: 5px;
+            color: #fff;
+        }
+
+        .editar-btn {
+            background-color: #007bff; 
+        }
+
+        .eliminar-btn {
+            background-color: #dc3545; 
+        }
+
+        table {
+            width: 100%;
+            border: 1px solid #ddd;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #007bff; 
+            color: #fff;
+        }
+
+        tr:hover {
+            background-color: rgba(18, 78, 6, 0.342);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Informacion de Clases</h2>
+
+        <a href="{% url 'menusito' %}" class="btn btn-secondary">Regresar</a>
+
+
+
+        <table id="TablaAsignacion" class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Periodo</th>
+                    <th>Año</th>
+                    <th>Maestro</th>
+                    <th>Clase</th>
+                    <th>Hora de Inicio</th>
+                    <th>Hora Final</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for asignacion in asignaciones %}
+                    <tr>
+                        <td>{{ asignacion.Asignacio_Id }}</td>
+                        <td>{{ asignacion.periodo_id }}</td>  
+                        <td>{{ asignacion.año }}</td>  
+                        <td>{{ asignacion.MaestroId }}</td>
+                        <td>{{ asignacion.ClaseID }}</td>
+                        <td>{{ asignacion.hora_inicio }}</td>
+                        <td>{{ asignacion.hora_fin }}</td>  
+              
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    
+    <script>
+        jQuery(document).ready(function ($) {
+            $('#TablaAsignacion').DataTable();
+        });
+    </script>
+
+</body>
+</html>
