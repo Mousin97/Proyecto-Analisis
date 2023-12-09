@@ -120,12 +120,3 @@ class Factura(models.Model):
         return f'Factura #{self.Fact_id} - {self.alumno.Nombre} - Total: {self.total}'
 
 
-class Clase(models.Model):
-    C_ID = models.BigAutoField(primary_key=True)
-    clase = models.ForeignKey(Clases, null=True, blank=False, on_delete=models.PROTECT)
-    matri = models.ForeignKey(Matricula, null=True, blank=False, on_delete=models.PROTECT)
-    precio = models.FloatField(default=800)
-
-    def __str__(self):
-        return f'Clase #{self.C_ID} - {self.clase.Nombre} - Precio: {self.precio}' 
-
