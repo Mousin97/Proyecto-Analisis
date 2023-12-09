@@ -10,7 +10,7 @@ from django.views.generic import TemplateView
 # Create your views here.
 #shdfoidhlfhw
 #lalala
-
+#ek
 
 #reimer me la pela
 
