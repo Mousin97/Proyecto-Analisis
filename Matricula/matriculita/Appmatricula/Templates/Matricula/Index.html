@@ -114,13 +114,14 @@
                 {% for matricula in matriculas %}
                     <tr>
                         <td>
-                            <a href="{% url 'matriculaseditar' pk=matricula.Matricula_id %}" class="btn btn-info editar-btn">
-                                <ion-icon name="pencil-outline"></ion-icon> Editar
-                            </a>
-                            <a href="{% url 'matriculaseliminar' matricula.M_Id %}" class="btn btn-danger eliminar-btn">
-                                <ion-icon name="trash-outline"></ion-icon> Eliminar
-                            </a>    
-                        </td>
+                           
+                           <a href="{% url 'matriculaseditar' pk=matricula.Matricula_id %}" class="btn btn-info editar-btn">
+                               <ion-icon name="pencil-outline"></ion-icon> Editar
+                           </a>
+                           <a href="{% url 'matriculaseliminar' matricula.Matricula_id %}" class="btn btn-danger eliminar-btn">
+                               <ion-icon name="trash-outline"></ion-icon> Eliminar
+                           </a>    
+                       </td>
                         <td>{{ Matricula_id }}</td>
                         <td>{{ matricula.alumno }}</td>  
                         <td>{{ matricula.asignacion }}</td>  
@@ -133,7 +134,7 @@
             </tbody>
         </table>
     </div>
-    <a href="{% url 'menusito' %}" class="btn btn-outline-success agregar-btn">retornar</a>
+    <a href="{% url 'matriculaslistar' %}" class="btn btn-outline-success agregar-btn">retornar</a>
     
     <script>
         jQuery(document).ready(function ($) {
