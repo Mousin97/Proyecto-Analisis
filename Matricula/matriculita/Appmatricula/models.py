@@ -101,16 +101,13 @@ class HistorialAlumno (models.Model):
 
 
 class Matricula(models.Model):
-    Matricula_id = models.BigAutoField(primary_key=True)
+    Matricula_id = models.AutoField(primary_key=True)
     alumno = models.ForeignKey(Alumnos, null=True, blank=False, on_delete=models.PROTECT)
     asignacion = models.ForeignKey(Asignaciones, null=True, blank=False, on_delete=models.PROTECT)
     aprobado = models.BooleanField(default=False)
 
     def __str__(self):
-        if self.asignacion is not None:
-            return f'Matricula #{self.Matricula_id} - {self.alumno.Nombre} - {self.asignacion.año} - {self.asignacion.periodo_id.Descripcion} - {self.asignacion.MaestroId.Nombre} - {self.asignacion.ClaseID.Nombre}'
-        else:
-            return f'Matricula #{self.Matricula_id} - {self.alumno.Nombre} - Asignación: None - Aprobado: {self.aprobado}'
+        return f'Matricula #{self.Matricula_id} - Alumnos: {alumno_nombre} - Asignaciones: {asignacion_id}'
 
 
 class Factura(models.Model):
