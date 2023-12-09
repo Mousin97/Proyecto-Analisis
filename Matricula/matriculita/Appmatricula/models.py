@@ -1,5 +1,5 @@
 from django.db import models
-
+#miu me la pije pela
 # Create your models here.
 
 class Carrera (models.Model):
