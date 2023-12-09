@@ -11,6 +11,9 @@ from django.views.generic import TemplateView
 #shdfoidhlfhw
 #lalala
 
+
+#reimer me la pela
+
 class MenuView(TemplateView):
     template_name = 'AppMatriculita/Menu.html'
 
