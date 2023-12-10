@@ -13,5 +13,4 @@ admin.site.register(Asignaciones)
 admin.site.register(HistorialAlumno)
 admin.site.register(Matricula)
 admin.site.register(Factura)
-admin.site.register(Clase)
 
