@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facturación</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form{
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        h2{
+            text-align: center;
+            color: #333;
+        }
+
+        button{
+            background-color: #4caf50;
+            color:#ffffff;
+            padding:10px;
+            border:none;
+            border-radius: 5px;
+            cursor:pointer;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+
+        button:hover{
+            background-color: #45a049;
+        }
+
+        a.retonar-button:hover{
+            background-color: #45a049;
+        }
+
+        input, select{
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            border-radius:4px;
+        }
+    </style>
+</head>
+<body>
+    <p>{{object}}</p>
+    <form method="post">
+        {% csrf_token %}
+        <input type="submit" value="Eliminar">
+        <div><button><a href="{% url 'facturaslistar' %}">Regresar</a></button></div>
+    </form>
+</body>
+</html>
