@@ -42,7 +42,13 @@ path('matriculas/eliminar/int<str:pk>/', MatriculaEliminar.as_view(), name = 'ma
 
     ### -------- URLS DE ASIGNACION -------###
 
-path('asignaciones', AsignacionListar.as_view(), name = 'asignacionlistar')
+path('asignaciones', AsignacionListar.as_view(), name = 'asignacionlistar'),
 
+    ### -------- URLS DE FACTURACION ------###
+
+path('facturacion', FacturaListar.as_view(), name = "facturaslistar"),
+path('facturacion/agregar', FacturaAgregar.as_view(), name = "facturasagregar"),
+path('facturacion/editar/<int:pk>/', FacturaEditar.as_view(), name = "facturaseditar"),
+path('facturacion/eliminar/int<str:pk>/', FacturaEliminar.as_view(), name = "facturaseliminar"),
 
 ]

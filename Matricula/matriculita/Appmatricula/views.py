@@ -117,3 +117,27 @@ class AsignacionListar (generic.ListView):
     template_name = 'Asignaciones/index.html'
     model = Asignaciones
     context_object_name = "asignaciones"
+
+### Facturacion ###
+
+class FacturaListar(generic.ListView):
+    template_name='Facturacion/Index.html'
+    model = Factura
+    context_object_name = "facturas"
+
+class FacturaAgregar(generic.CreateView):
+    template_name='Facturacion/Agregar.html'
+    model = Factura
+    form_class = FacturaForm
+    success_url = reverse_lazy('facturaslistar')
+
+class FacturaEditar(generic.UpdateView):
+    template_name='Facturacion/Editar.html'
+    model = Factura
+    form_class = FacturaForm
+    success_url = reverse_lazy('facturaslistar')
+
+class FacturaEliminar(generic.DeleteView):
+    template_name='Facturacion/Eliminar.html'
+    model = Factura
+    success_url = reverse_lazy('facturaslistar')
