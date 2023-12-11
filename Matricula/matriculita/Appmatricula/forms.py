@@ -58,3 +58,8 @@ class ClaseForm(forms.ModelForm):
     class Meta:
         model = Factura
         fields = '__all__'
+
+class CarreraForm(forms.ModelForm):
+    class Meta:
+        model = Carrera
+        fields = '__all__'

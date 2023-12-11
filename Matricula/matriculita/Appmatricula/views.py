@@ -141,3 +141,10 @@ class FacturaEliminar(generic.DeleteView):
     template_name='Facturacion/Eliminar.html'
     model = Factura
     success_url = reverse_lazy('facturaslistar')
+
+#listar carreras disponibles
+class CarreraListar(generic.ListView):
+    template_name='Carreras/Index.html'
+    model = Carrera
+    context_object_name = "facturas"
+
