@@ -86,6 +86,12 @@
         tr:hover {
             background-color: rgba(18, 78, 6, 0.342);
         }
+        .btn-return{
+            display: flex;
+            justify-content: center;
+            justify-items: center;
+
+        }
 
     </style>
 </head>
@@ -133,8 +139,12 @@
                 
             </tbody>
         </table>
+        <div class="btn-return">
+            <a href="{% url 'menusito' %}" class="btn btn-outline-success ">retornar</a>
+        </div>
+        
     </div>
-    <a href="{% url 'menusito' %}" class="btn btn-outline-success agregar-btn">retornar</a>
+    
     
     <script>
         jQuery(document).ready(function ($) {
