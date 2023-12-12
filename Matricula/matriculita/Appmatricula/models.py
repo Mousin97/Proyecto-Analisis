@@ -1,5 +1,6 @@
 from django.db import models
-
+from django.core.validators import RegexValidator
+from django.core.validators import EmailValidator
 
 class Carrera (models.Model):
     Carrera_id = models.CharField(primary_key = True, max_length = 50)
@@ -12,8 +13,12 @@ class Alumnos (models.Model):
     AlumnoID = models.CharField(primary_key = True, max_length = 10)
     Nombre = models.CharField(max_length=100)
     Apellido = models.CharField(max_length=100)
-    Identidad = models.CharField(max_length=13)
-    Correo = models.EmailField()
+    Identidad = models.CharField(max_length=13, validators=[
+        RegexValidator(regex='^[0-9]{13}$', message="La identidad debe tener 13 digitos")
+    ])
+    Correo = models.EmailField(validators=[
+        EmailValidator(message="La direccion de correo electronico no es valida")
+    ])
     Telefono = models.CharField(max_length=8)
     Direccion = models.CharField(max_length=100)
     sexos = [
@@ -36,17 +41,24 @@ class Alumnos (models.Model):
                 return True
         return False
 
+        
+
+
 class Maestros (models.Model):
     MaestroId = models.CharField(primary_key = True, max_length = 10)    
     Nombre = models.CharField(max_length=100)
     Apellido = models.CharField(max_length=100)
-    Identidad = models.CharField(max_length=13)
+    Identidad = models.CharField(max_length=13, validators=[
+        RegexValidator(regex='^[0-9]{13}$', message="La identidad debe tener 13 digitos")
+    ])
     sexos = [
         ('F', 'Femenino'),
         ('M', 'Masculino')
     ]
     sexo = models.CharField(max_length=1, choices=sexos, default='F')
-    Correo = models.EmailField()
+    Correo = models.EmailField(validators=[
+        EmailValidator(message="La direccion de correo electronico no es valida")
+    ])
     Telefono = models.CharField(max_length=8)
     Direccion = models.CharField(max_length=100)
 
