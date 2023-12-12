@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asignaciones</title>
+    <title>Carreras</title>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
@@ -95,9 +95,7 @@
         <h2>Carreras Disponibles </h2>
 
         <a href="{% url 'menusito' %}" class="btn btn-secondary">Regresar</a>
-
-
-
+        
         <table id="TablaAsignacion" class="table">
             <thead class="thead-dark">
                 <tr>
@@ -111,7 +109,7 @@
                     <tr>
                         <td>{{ Carrera.Carrera_id }}</td>
                         <td>{{ Carrera.C_Nombre }}</td>  
-                        cd
+                        
                     </tr>
                 {% endfor %}
             </tbody>
