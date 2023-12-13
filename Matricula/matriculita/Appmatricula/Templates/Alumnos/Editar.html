@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumnos</title>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
+
+    <style>
+        body {
+            background-color: #333; 
+            color: #fff;
+            font-family: 'Georgia', serif; 
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            background-color: #02172e; 
+            color: #fff;
+            padding: 15px;
+            margin: 0 0 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1500px;
+            margin: 0 auto;
+        }
+
+        .agregar-btn {
+            text-decoration: none;
+            display: block; 
+            margin: 20px 0; 
+            padding: 10px;
+            border-radius: 5px;
+            color: #fff;
+            background-color: #515351; 
+            text-align: center;
+        }
+
+        .editar-btn,
+        .eliminar-btn {
+            text-decoration: none;
+            display: inline-block;
+            margin-left: 10px; 
+            border-radius: 5px;
+            color: #fff;
+        }
+
+        .editar-btn {
+            background-color: #007bff; 
+        }
+
+        .eliminar-btn {
+            background-color: #dc3545; 
+        }
+
+        table {
+            width: 100%;
+            border: 1px solid #ddd;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #007bff; 
+            color: #fff;
+        }
+
+        tr:hover {
+            background-color: rgba(18, 78, 6, 0.342);
+        }
+
+    </style>
+</head>
+<body>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Editar</button>
+        <a href="{% url 'alumnoslistar' %}">Retornar</a>
+    </form>
+</body>
+</html>
