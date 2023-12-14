@@ -1,5 +1,5 @@
 from django.db import models
-from django.core.validators import RegexValidator
+from django.core.validators import RegexValidator, ValidationError
 from django.core.validators import EmailValidator
 
 class Carrera (models.Model):
@@ -117,8 +117,25 @@ class Matricula(models.Model):
     asignacion = models.ForeignKey(Asignaciones, null=True, blank=False, on_delete=models.PROTECT)
     aprobado = models.BooleanField(default=False)
 
+    def clean(self):
+        super().clean()
+
+        # Verificar si el alumno ya está matriculado en la misma asignación
+        existe_matricula = Matricula.objects.filter(
+            alumno=self.alumno,
+            asignacion__hora_inicio=self.asignacion.hora_inicio,
+            asignacion__hora_fin=self.asignacion.hora_fin
+        ).exclude(pk=self.pk).exists()
+
+        if existe_matricula:
+            raise ValidationError('El alumno aun no ha cumplido los requisitos para llevar esta clase.')
+
+    def save(self, *args, **kwargs):
+        self.full_clean()
+        super().save(*args, **kwargs)
+
     def __str__(self):
-        return f'Matricula #{self.Matricula_id} - Alumnos: {alumno_nombre} - Asignaciones: {asignacion_id}'
+        return f'Matricula #{self.Matricula_id} - Alumnos: {self.alumno} - Asignaciones: {self.Asignacio_Id}'
 
 
 class Factura(models.Model):
